@@ -1,0 +1,27 @@
+services:
+  teslo-shop:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: ${DOCKER_SERVICE_NAME}
+    env_file: .env
+    ports:
+      - ${DOCKER_PORT}:3000
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./static:/app/static
+    depends_on:
+      - teslo_db
+  
+  teslo_db:
+    image: postgres:16-alpine
+    container_name: teslo_db
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+
