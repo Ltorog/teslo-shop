@@ -5,6 +5,9 @@ import { SeedService } from './seed.service';
 import { Auth, GetUser } from 'src/auth/decorators';
 import { User } from 'src/auth/entities/user.entity';
 
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Seed')
 @Controller('seed')
 export class SeedController {
   constructor(private readonly seedService: SeedService) {}

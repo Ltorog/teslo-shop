@@ -7,6 +7,9 @@ import express, {Request, Response} from 'express';
 import { Res } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Files')
 @Controller('files')
 export class FilesController {
   constructor(
