@@ -15,8 +15,8 @@ export class SeedController {
   @Get()
   //@Auth()
   async executeSeed(
-    @GetUser() user: User
+    //@GetUser() user: User
   ) {
-    return await this.seedService.runSeed(user);
+    return await this.seedService.runSeed(undefined);
   }
 }
