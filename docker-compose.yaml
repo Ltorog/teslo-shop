@@ -2,7 +2,7 @@ services:
   teslo-shop:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     container_name: ${DOCKER_SERVICE_NAME}
     env_file: .env
     ports:
