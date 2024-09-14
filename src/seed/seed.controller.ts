@@ -13,7 +13,7 @@ export class SeedController {
   constructor(private readonly seedService: SeedService) {}
 
   @Get()
-  @Auth()
+  //@Auth()
   async executeSeed(
     @GetUser() user: User
   ) {
