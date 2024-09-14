@@ -17,7 +17,7 @@ export class SeedService {
     private readonly userRepository: Repository<User>
   ){};
 
-  async runSeed(user: User) {
+  async runSeed(user: User | undefined) {
 
     await this.deleteTables();
     const adminUser = await this.insertUsers();
