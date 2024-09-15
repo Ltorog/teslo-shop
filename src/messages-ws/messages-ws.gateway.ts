@@ -7,7 +7,13 @@ import { NewMessageDto } from './dtos/new-message.dto';
 import { JwtPayload } from 'src/auth/interfaces';
 
 
-@WebSocketGateway({ cors: true })
+@WebSocketGateway({
+  cors: {
+    origin: '*', // Allow all origins, or specify your front-end domain
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }
+})
 export class MessagesWsGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @WebSocketServer() wss: Server;

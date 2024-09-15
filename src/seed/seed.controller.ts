@@ -13,10 +13,10 @@ export class SeedController {
   constructor(private readonly seedService: SeedService) {}
 
   @Get()
-  //@Auth()
+  @Auth()
   async executeSeed(
-    //@GetUser() user: User
+    @GetUser() user: User
   ) {
-    return await this.seedService.runSeed(undefined);
+    return await this.seedService.runSeed(user);
   }
 }
